@@ -36,6 +36,17 @@ This architecture diagram illustrates the threat entry points, trust boundaries,
 ## Environment Setup
 ### Cloud Platform Assumptions
 ### Identity & Access
+### Threat-to-Control Mapping (CCM-Aligned)
+
+The following table illustrates how identified threats were mapped to Cloud Controls Matrix (CCM) domains and corresponding security controls within the architecture:
+
+| Threat Scenario              | CCM Domain | Control Focus                                   | Architectural Tie-In |
+|-----------------------------|------------|--------------------------------------------------|----------------------|
+| Identity misuse / account takeover | IAM        | MFA enforcement, RBAC, least privilege           | Identity provider, access logs, auth services |
+| API abuse & unauthorized access   | APP        | API gateway validation, rate limiting, authZ     | Application & Control Plane |
+| Data exfiltration risk            | CEK / LOG  | Encryption at rest & in transit, audit logging   | Data & Secrets layer, SIEM |
+| Delayed threat detection          | LOG        | Centralized logging, alerting, IOC generation    | Monitoring & Response layer |
+
 ### Logging & Monitoring
 
 ## Implementation & Analysis
@@ -57,6 +68,25 @@ High-risk areas identified (identity misuse, API abuse, data exfil)
 Gaps acknowledged (no real SIEM integration, conceptual tooling)
 
 Security posture: defense-in-depth with monitoring maturity
+
+### Key Findings
+
+The threat modeling exercise produced the following insights:
+
+- **Identity is the primary attack surface**  
+  Most high-impact threat paths originate from credential misuse or authorization gaps, reinforcing IAM as the core control plane.
+
+- **API exposure represents a critical trust boundary**  
+  Improper input validation or insufficient rate limiting would enable abuse scenarios directly impacting availability and data integrity.
+
+- **Detection maturity outpaces prevention depth**  
+  Centralized logging and alerting are well-positioned to detect anomalies, but some preventive controls (e.g., real SIEM integration) remain conceptual.
+
+- **Deception techniques provide early-warning value**  
+  The optional honeypot layer offers low-noise indicators and improves adversary visibility without expanding the primary attack surface.
+
+These findings directly map to the architecture diagram, particularly the identity boundary, application control plane, and monitoring layers where validation, logging, and alerting controls were evaluated.
+
 
 ## Executive Summary
 The platform assumes hostile networks by default
