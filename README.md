@@ -40,7 +40,29 @@ This architecture diagram illustrates the threat entry points, trust boundaries,
 - SIEM (Splunk – conceptual)
 - Identity Provider (Okta – conceptual)
 
+Threat identification and control mapping in this project align with CSA CCM domains and NIST SP 800-series guidance, informed by ATT&CK threat behaviors and OWASP risk patterns.
+
 ## References
+
+- Cloud Security Alliance. (2021). *Cloud Controls Matrix (CCM) v4*.  
+  https://cloudsecurityalliance.org/research/cloud-controls-matrix
+
+- National Institute of Standards and Technology. (2020).  
+  *Security and Privacy Controls for Information Systems and Organizations (SP 800-53 Rev. 5).*  
+  https://doi.org/10.6028/NIST.SP.800-53r5
+
+- National Institute of Standards and Technology. (2018).  
+  *Framework for Improving Critical Infrastructure Cybersecurity (NIST CSF).*  
+  https://www.nist.gov/cyberframework
+
+- MITRE Corporation. (2023).  
+  *MITRE ATT&CK® Framework.*  
+  https://attack.mitre.org/
+
+- OWASP Foundation. (2021).  
+  *OWASP Top 10 Web Application Security Risks.*  
+  https://owasp.org/www-project-top-ten/
+
 
 ## Closing Note
 
