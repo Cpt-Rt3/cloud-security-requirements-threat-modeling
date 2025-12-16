@@ -1,7 +1,26 @@
 # Cloud Security Requirements & Threat Modeling
 
 ## Project Summary
-(you already wrote this — keep it)
+Acme Everything Smart, Inc. builds smart devices for homes, businesses, and the medical world. These devices aren’t just gadgets, they handle some of the most sensitive data out there: personal details (PII), medical records (PHI), financial info, and device telemetry. To keep all of this safe, every device connects into Acme Everything Smart (ES) platform, a SaaS solution running on Microsoft Azure’s commercial cloud.
+
+The SE platform is locked down with multi-factor authentication (MFA) for both admins and customers, and it works with outside identity providers when needed. Encryption follows FIPS 140-2 standards for data both moving and stored. All logs feed into Splunk Cloud SIEM, giving TRex visibility for monitoring and investigations. Updates are handled automatically through secure APIs, and because reliability is life-or-death for medical devices, they run on Verizon ISP for critical connections.
+
+Dataflows in the environment include customers talking to devices, devices pushing back into ES, and management-plane activity feeding the application plane. Smart devices pull in things like biometrics or environmental stats, send them over encrypted tunnels, and trigger real-time analytics. That might mean nudging a user with advice, or in the case of a medical emergency, automatically dialing 911. Authorized users (Viewers) can see results when policy allows, while Acme Everything Smart admins manage the bigger picture, continuous monitoring, patching, and encryption key management.
+
+This report focuses on five areas of the Cloud Controls Matrix (CCM) that matter most to Acme Everything SMart right now: Identity & Access Management (IAM), Logging & Monitoring (LOG), Threat & Vulnerability Management (TVM), Supply Chain Management (STA), and Cryptography, Encryption & Key Management (CEK). Each section breaks down where Acme ES stands today and gives direct recommendations on how to tighten the organization’s defenses at the policy, operations, and technical levels.
+  
+2 System Diagram
+Refer to this System Diagram.
+The system diagram shows how the Acme ES platform runs on Microsoft Azure’s commercial cloud. On one side you’ve got the application plane, where the smart devices plug in and talk with SE services. On the other side sits the management plane, where admins keep control of updates, monitoring, and security.
+The diagram also maps the main dataflows:
+- Customers connecting to their devices through their ISP
+- Devices sending data back into the SE platform over encrypted tunnels
+- Management-plane activity feeding into the application plane to keep everything patched and running smooth
+ES services are the heart of the platform. This is where the analytics, alerts, and automation happen, from running health checks on medical devices to sending out recommendations or triggering an emergency call when needed.
+The system also layers on boundary protections, which are like digital walls and gates that keep untrusted traffic out and only allow approved communication in. These defenses keep attackers from slipping through open doors.
+Every login is backed by multi-factor authentication (MFA), meaning nobody gets in with just a password. Users confirm their identity with something extra (like a phone app or token). MFA matters because it blocks the easy wins for attackers, like stolen passwords.
+For encryption, Acme ES relies on FIPS 140-2 validated cryptography, the federal gold standard for protecting sensitive data in motion and at rest. This ensures customer data, from heart rate stats to login credentials, stays private end-to-end. Some experts now lean toward faster, modern algorithms like ED25519, which can offer strong security with better performance for signing and key exchange. But FIPS 140-2 remains the compliance baseline and makes sure Acme ES is meeting industry and government standards.
+All of these guardrails, boundary protections, MFA, and encryption, work together to lock down confidentiality, integrity, and availability across the environment.
 
 ## Threat Model
 ## Threat Model Architecture
