@@ -29,10 +29,24 @@ This architecture diagram illustrates the threat entry points, trust boundaries,
 4. Document gaps and recommendations
 
 ## Results & Evidence
-(Key findings, major gaps, security posture)
+This is not about logs or screenshots (unless you want to add them later).
+
+It’s about outcomes:
+
+High-risk areas identified (identity misuse, API abuse, data exfil)
+
+Gaps acknowledged (no real SIEM integration, conceptual tooling)
+
+Security posture: defense-in-depth with monitoring maturity
 
 ## Executive Summary
-(Leadership-level takeaway — no jargon)
+The platform assumes hostile networks by default
+
+Identity is the primary control plane
+
+Visibility closes the loop between prevention and response
+
+Architecture favors detection and containment over perfection
 
 ## Tools Used
 - Cloud Controls Matrix (CCM)
