@@ -4,6 +4,12 @@
 (you already wrote this — keep it)
 
 ## Threat Model
+## Threat Model Architecture
+
+![Acme Everything Smart – Threat Model Architecture](screenshots/Acme-everything-smart-threat-model-architecture.png)
+
+This architecture diagram illustrates the threat entry points, trust boundaries, control layers, and monitoring flow for the Acme Everything Smart SaaS IoT platform. It demonstrates how identity, encryption, vulnerability management, logging, and optional deception techniques work together to detect, contain, and respond to threats across the cloud application lifecycle.
+
 ### Primary Risks
 ### Threat Actors
 ### Assumptions
@@ -35,5 +41,10 @@
 - Identity Provider (Okta – conceptual)
 
 ## References
+
+## Closing Note
+
+This project demonstrates a security-first mindset grounded in practical threat modeling and control mapping. While Acme Everything Smart is fictional, the risks, controls, and architectural patterns reflect real-world cloud security challenges faced by modern SaaS and IoT platforms.
+
 - Cloud Security Alliance – CCM
 - NIST SP 800-series
